@@ -31,6 +31,7 @@ logger = logging.getLogger(__name__)
 
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
+
 class FacebookCodeBot:
     def __init__(self):
         self.client = GmailnatorClient(RAPIDAPI_KEY, RAPIDAPI_HOST)
@@ -40,7 +41,7 @@ class FacebookCodeBot:
         if not self._check_rate_limit(user_id, update):
             return
         await update.message.reply_text(
-            "🔐 *Uniacc Facebook Code Bot*\n\n"
+            "🔐 *Facebook Code Bot*\n\n"
             "I help you get verification codes from Facebook.\n\n"
             "*How it works:*\n"
             "1️⃣ Request a verification code from Facebook to your email\n"
@@ -51,7 +52,7 @@ class FacebookCodeBot:
             "/help - Get help\n\n"
             "*Example:*\n"
             "`Mail.from.link@gmail.com`\n\n"
-            "Need help? @Uniacc\\_store",
+            "Need help? @Drenas26",
             parse_mode='Markdown'
         )
 
@@ -72,7 +73,7 @@ class FacebookCodeBot:
             "*Commands:*\n"
             "/start - Start the bot\n"
             "/help - Show this help message\n\n"
-            "Need help? @Uniacc\\_store",
+            "Need help? @Drenas26",
             parse_mode='Markdown'
         )
 
@@ -150,6 +151,7 @@ class FacebookCodeBot:
         user_last_request[user_id] = now
         return True
 
+
 def main():
     if not TELEGRAM_TOKEN:
         print("❌ Error: TELEGRAM_TOKEN not found in .env")
@@ -169,6 +171,7 @@ def main():
 
     print("✅ Bot is running and ready!")
     app.run_polling()
+
 
 if __name__ == "__main__":
     main()
